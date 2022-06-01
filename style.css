@@ -77,11 +77,11 @@ body h1 {
     margin: 1rem;
 }
 
-.features > input[placeholder] {
+.features input[placeholder] {
     font-size: 1rem;
 }
 
-.features > button {
+.features button {
     display: none;
 }
 
@@ -92,7 +92,6 @@ body h1 {
 .features > .radio-btns > #x {
     margin-right: 1rem;
 }
-
 
 /* PLAY BUTTONS */
 
