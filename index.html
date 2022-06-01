@@ -12,6 +12,8 @@
     <title>Tic Tac Toe</title>
 </head>
 <body>
+    <h1>Tic-Tac-Toe</h1>
+    <!--Gameboard-->
     <div class="game-container">
         <div class="game-square" id="0"></div>
         <div class="game-square" id="1"></div>
@@ -23,6 +25,22 @@
         <div class="game-square" id="7"></div>
         <div class="game-square" id="8"></div>
     </div>
+    <!--Enter name, choose mark, reset button-->
+    <div class="features">
+        <input type="text" id="username" placeholder="Enter your name">
+        <!--Radio button to choose mark-->
+        <div class="radio-btns">
+            <form action="">
+                <label for="X">X's</label>
+                <input type="radio" id="x" name='mark'>
+                <label for="O">O's</label>
+                <input type="radio" id="o" name='mark'>
+            </form>
+        </div>
+        <!--Reset button-->
+        <button type='button' class='restart-btn'>Restart</button>
+    </div>
+    <!--Choose play type-->
     <div class="buttons">
         <button class="computer-btn">vs. Computer</button>
         <button class="player-btn">vs. Player</button>
