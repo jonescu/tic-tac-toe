@@ -10,6 +10,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    position: relative;
 }
 
 body h1 {
@@ -63,12 +64,19 @@ body h1 {
 /* FEATURES */
 
 .features {
+    visibility: hidden;
     margin: 0 auto;
+    padding: 1rem;
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 410px;
     justify-content: space-around;
     align-items: center;
+    border-radius: 3px;
+    border: 1px solid #333;
+    position: absolute;
+    left: 39.5%;
+    background-color: beige
 }
 
 .features > input {
@@ -81,8 +89,22 @@ body h1 {
     font-size: 1rem;
 }
 
-.features button {
-    display: none;
+.features > .start-btn {
+    border: 1px solid #333;
+    border-radius: 3px;
+    background-color: rgb(126, 230, 126);
+    color: rgb(0, 0, 0);
+}
+
+.features > .start-btn:hover {
+    cursor: pointer;
+    background-color: rgb(179, 231, 179);
+}
+
+.choose-opponent-message {
+    margin: 0 auto;
+    padding: 1rem;
+    font-size: 1.5rem;
 }
 
 .features label {
@@ -100,6 +122,12 @@ body h1 {
     display: flex;
     justify-content: center;
     width: 500px;
+}
+
+.buttons > .restart-btn {
+    visibility: hidden;
+    background-color: rgb(126, 230, 126);
+    border-radius: 3px;
 }
 
 button {

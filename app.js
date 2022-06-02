@@ -6,6 +6,11 @@ const vsComputerBtn = document.querySelector('.computer-btn')
 const restartBtn = document.querySelector('.restart-btn')
 const playerName = document.querySelector('#username')
 const playerMark = Array.from(document.getElementsByName('mark'))
+const features = document.querySelector('.features')
+const startBtn = document.querySelector('.start-btn')
+const chooseOpponent = document.querySelector('.choose-opponent-message')
+let x_class = 'x'
+let o_class = 'o'
 
 //Gameboard Module
 const gameBoard = (() => {
@@ -18,18 +23,30 @@ const gameBoard = (() => {
       }
   }
 
-  //Place mark on board
+  //Place mark on board, toggle turn
   function placeMark(mark) {
       gameContainer.addEventListener('click', function(e){
         let index = e.target.id
         board.splice(index, 1, mark)
         render();
+        if(mark === x_class) {
+            mark = o_class
+        } else {
+            mark = x_class
+        }
       })
   }
+
+  //Check winner
+  function checkWinner(){
+      console.log(board)
+  }
+
   //Return public methods
   return {
       render,
-      placeMark
+      placeMark,
+      checkWinner
   }
 })();
 
@@ -40,29 +57,40 @@ const createPlayer = (name, mark) => {
 
 //Choose name and mark
 function chooseMark() {
-    restartBtn.style.display = 'block'
+    features.style.visibility = 'hidden'
+    restartBtn.style.visibility = 'visible'
+    vsComputerBtn.disabled = true;
+    vsPlayerBtn.disabled = true;
     for(let i=0; i<playerMark.length; i++) {
-        if(playerMark[i].checked) {
-                let playerOne = createPlayer(playerName.value, playerMark[i].id)
-                gameBoard.placeMark(playerMark[i].id)
+        if(playerMark[i].checked == x_class) {
+              createPlayer(playerName.value, x_class)
+                gameBoard.placeMark(x_class)
+            } else {
+              createPlayer(playerName.value, o_class)
+                 gameBoard.placeMark(o_class)
             }
         }
   }
-  vsPlayerBtn.addEventListener('click', chooseMark)
+
+vsPlayerBtn.addEventListener('click', function(){
+    features.style.visibility = 'visible'
+    chooseOpponent.style.visibility = 'hidden'
+})
+
+//Begin game
+startBtn.addEventListener('click', chooseMark)
 
 //Restart
 function restart(){
     gameSquare.forEach(el => el.textContent = '')
     playerName.value = ''
-    restartBtn.style.display = 'none'
+    restartBtn.style.visibility = 'hidden'
+    vsComputerBtn.disabled = false
+    vsPlayerBtn.disabled = false
     if(playerMark[0].checked === true || playerMark[1].checked === true) {
         playerMark[0].checked = false
         playerMark[1].checked = false
-        console.log('works')
     }
 }
 restartBtn.addEventListener('click', restart)
 
-//Function Calls
-gameBoard.render();
-gameBoard.placeMark();
