@@ -15,40 +15,28 @@
     <h1>Tic-Tac-Toe</h1>
     <!--Gameboard-->
     <div class="game-container">
-        <div class="game-square" id="0"></div>
-        <div class="game-square" id="1"></div>
-        <div class="game-square" id="2"></div>
-        <div class="game-square" id="3"></div>
-        <div class="game-square" id="4"></div>
-        <div class="game-square" id="5"></div>
-        <div class="game-square" id="6"></div>
-        <div class="game-square" id="7"></div>
-        <div class="game-square" id="8"></div>
+        <div class="game-square" data-key='0' id="0"></div>
+        <div class="game-square" data-key='0' id="1"></div>
+        <div class="game-square" data-key='0' id="2"></div>
+        <div class="game-square" data-key='1' id="0"></div>
+        <div class="game-square" data-key='1' id="1"></div>
+        <div class="game-square" data-key='1' id="2"></div>
+        <div class="game-square" data-key='2' id="0"></div>
+        <div class="game-square" data-key='2' id="1"></div>
+        <div class="game-square" data-key='2' id="2"></div>
     </div>
-    <!--Enter name, choose mark, reset button-->
-    <div class="features">
-        <input type="text" id="username" placeholder="Enter your name" required/>
-        <!--Radio button to choose mark-->
-        <div class="radio-btns">
-            <form action="">
-                <label for="X">X's</label>
-                <input type="radio" id="x" name='mark'>
-                <label for="O">O's</label>
-                <input type="radio" id="o" name='mark'>
-            </form>
-        </div>
-        <!--Reset button-->
-        <button type='button' class="start-btn">Begin</button>
-        
-    </div>
-    <!--Choose play type-->
-    <div class="choose-opponent-message">
-        <span>Who do you want to play against?</span>
-    </div>
-    <div class="buttons">
-        <button class="computer-btn">vs. Computer</button>
-        <button type='button' class="restart-btn">Restart</button>
-        <button class="player-btn">vs. Player</button>
+    <!--Options-->
+    <div class="pick-mark">
+        <form action="#">
+            <label for="mark-selector">Choose your mark:</label>
+            <select name="" id="mark-selector">
+                <option class='mark-x' value="X">X</option>
+                <option class='mark-o' value="O">O</option>
+            </select>
+            <br>
+            <br>
+            <input type="button" id="begin-button" value="Begin">
+        </form>
     </div>
 </body>
 </html>
