@@ -86,7 +86,7 @@ function checkBoard(){
     displayWinner(board[0][2])
     console.log('diagonal 2 working')
 
-  } else if(pieces === 9) {
+  } else if(pieces === 10) {
     header.textContent = "It's a tie"
   }
   }
