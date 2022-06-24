@@ -30,7 +30,6 @@ beginBtn.addEventListener('click', getPlayerMark)
 
 // Place mark
 function placeMark(e){
-  console.log(pieces)
   if(playerMark !== null && e.target.classList.contains('game-square')){
     if(e.target.textContent === '') {
       pieces++
@@ -57,35 +56,20 @@ gameBoard.addEventListener('click', placeMark)
 function checkBoard(){
   if(board[0][0] !== '' && board[0][0] === board[0][1] && board[0][0] === board[0][2]) {
     displayWinner(board[0][0])
-    console.log('row 1 working', board)
   } else if(board[1][0] !== '' && board[1][0] === board[1][1] && board[1][0] === board[1][2]) {
     displayWinner(board[1][0])
-    console.log('row 2 working', board)
-
   } else if(board[2][0] !== '' && board[2][0] === board[2][1] && board[2][0] === board[2][2]) {
     displayWinner(board[2][0])
-    console.log('row 3 working', board)
-
   } else if(board[0][0] !== '' && board[0][0] === board[1][0] && board[0][0] === board[2][0]) {
     displayWinner(board[0][0])
-    console.log('column 1 working', board)
-
   } else if(board[0][1] !== '' && board[0][1] === board[1][1] && board[0][1] === board[2][1]) {
     displayWinner(board[0][1])
-    console.log('column 2 working')
-
   } else if(board[0][2] !== '' && board[0][2] === board[1][2] && board[0][2] === board[2][2]) {
     displayWinner(board[0][2])
-    console.log('column 3 working')
-
   } else if(board[0][0] !== '' && board[0][0] === board[1][1] && board[0][0] === board[2][2]) {
     displayWinner(board[0][0])
-    console.log('diagonal 1 working')
-
   } else if(board[0][2] !== '' && board[0][2] === board[1][1] && board[0][2] === board[2][0]) {
     displayWinner(board[0][2])
-    console.log('diagonal 2 working')
-
   } else if(pieces === 10) {
     header.textContent = "It's a tie"
   }
@@ -117,8 +101,6 @@ function reset(){
       board[i][j] = ''
     }
   }
-
-  console.log(playerMark, currentTurn, board)
 }
 
 resetBtn.addEventListener('click', reset)
